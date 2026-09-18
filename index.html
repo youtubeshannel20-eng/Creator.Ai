@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Creator.Ai — A modern platform for creators, curious minds and storytellers. Create, learn and understand.">
+
+<meta name="keywords"
+content="Creator.Ai, creators, AI, technology, science, education, business, media">
+
+<meta name="author" content="Shubham Raj">
+
+<title>Creator.Ai — Create. Learn. Understand.</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --text:#111318;
+    --muted:#69707d;
+    --border:#e5e7eb;
+    --soft:#eef0f4;
+    --accent:#111318;
+}
+
+body.dark{
+    --bg:#090b0f;
+    --card:#13161b;
+    --text:#f7f8fa;
+    --muted:#9ca3af;
+    --border:#282d35;
+    --soft:#1d2128;
+    --accent:#ffffff;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.5;
+    transition:.3s;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+
+body.dark .navbar{
+    background:rgba(9,11,15,.86);
+}
+
+.nav{
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-1.3px;
+}
+
+.logo span{
+    opacity:.45;
+}
+
+.navlinks{
+    display:flex;
+    gap:25px;
+}
+
+.navlinks a{
+    font-size:14px;
+    font-weight:600;
+    color:var(--muted);
+    transition:.2s;
+}
+
+.navlinks a:hover{
+    color:var(--text);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.theme-btn{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+}
+
+.login-btn{
+    border:0;
+    background:var(--text);
+    color:var(--bg);
+    padding:11px 17px;
+    border-radius:10px;
+    font-weight:700;
+}
+
+/* HERO */
+
+.hero{
+    padding:85px 0 70px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.35fr .65fr;
+    gap:55px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 13px;
+    border:1px solid var(--border);
+    background:var(--soft);
+    border-radius:30px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.8px;
+    margin-bottom:20px;
+}
+
+.badge-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--text);
+}
+
+.hero h1{
+    font-size:clamp(48px,8vw,82px);
+    line-height:.94;
+    letter-spacing:-5px;
+    margin-bottom:25px;
+}
+
+.hero h1 .fade{
+    opacity:.38;
+}
+
+.hero-description{
+    max-width:650px;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.7;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
+}
+
+.primary-btn{
+    border:0;
+    background:var(--text);
+    color:var(--bg);
+    padding:14px 21px;
+    border-radius:12px;
+    font-weight:800;
+}
+
+.secondary-btn{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    padding:14px 21px;
+    border-radius:12px;
+    font-weight:800;
+}
+
+.hero-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.06);
+}
+
+.hero-icon{
+    width:64px;
+    height:64px;
+    display:grid;
+    place-items:center;
+    border-radius:19px;
+    background:var(--soft);
+    font-size:30px;
+    margin-bottom:28px;
+}
+
+.hero-card h3{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.hero-card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* SECTIONS */
+
+section{
+    padding:65px 0;
+}
+
+.section-header{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:28px;
+}
+
+.section-title{
+    font-size:34px;
+    letter-spacing:-1.3px;
+}
+
+.section-subtitle{
+    color:var(--muted);
+    margin-top:7px;
+}
+
+/* SEARCH */
+
+.search{
+    width:270px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    padding:13px 16px;
+    border-radius:12px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:var(--text);
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding-bottom:8px;
+}
+
+.category{
+    white-space:nowrap;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--muted);
+    padding:10px 16px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.category.active,
+.category:hover{
+    background:var(--text);
+    color:var(--bg);
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.thumbnail{
+    height:190px;
+    display:grid;
+    place-items:center;
+    background:var(--soft);
+    font-size:50px;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.tag{
+    color:var(--muted);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.card h3{
+    font-size:19px;
+    line-height:1.3;
+    margin:10px 0;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.55;
+}
+
+.meta{
+    color:var(--muted);
+    font-size:11px;
+    margin-top:17px;
+}
+
+/* CREATORS */
+
+.creator-card{
+    padding:24px;
+}
+
+.creator-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.avatar{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:var(--soft);
+    font-size:25px;
+    flex-shrink:0;
+}
+
+.creator-name{
+    font-size:17px;
+    font-weight:800;
+}
+
+.creator-role{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.follow-btn{
+    margin-top:20px;
+    width:100%;
+    padding:10px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:transparent;
+    color:var(--text);
+    font-weight:700;
+}
+
+/* FOUNDER */
+
+.founder-box{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:30px;
+    align-items:center;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:35px;
+}
+
+.founder-avatar{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:var(--soft);
+    font-size:48px;
+    border:1px solid var(--border);
+}
+
+.founder-label{
+    color:var(--muted);
+    font-size:11px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+}
+
+.founder-name{
+    font-size:31px;
+    margin:5px 0;
+}
+
+.founder-role{
+    color:var(--muted);
+    margin-bottom:13px;
+}
+
+.founder-bio{
+    color:var(--muted);
+    max-width:700px;
+    line-height:1.7;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.about-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:30px;
+}
+
+.about-box h3{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.about-box p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* AI CTA */
+
+.ai-section{
+    background:var(--text);
+    color:var(--bg);
+    border-radius:28px;
+    padding:55px 30px;
+    text-align:center;
+}
+
+.ai-section h2{
+    font-size:40px;
+    letter-spacing:-1.5px;
+    margin-bottom:12px;
+}
+
+.ai-section p{
+    opacity:.65;
+    max-width:650px;
+    margin:0 auto 25px;
+}
+
+.ai-btn{
+    border:0;
+    background:var(--bg);
+    color:var(--text);
+    padding:13px 21px;
+    border-radius:11px;
+    font-weight:800;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+    padding-bottom:80px;
+}
+
+.contact p{
+    color:var(--muted);
+    max-width:600px;
+    margin:10px auto 22px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:35px 0;
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.footer-logo{
+    font-size:18px;
+    font-weight:900;
+}
+
+.footer p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .navlinks{
+        display:none;
+    }
+
+    .hero{
+        padding:55px 0 45px;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .hero h1{
+        font-size:52px;
+        letter-spacing:-3px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .section-header{
+        display:block;
+    }
+
+    .search{
+        width:100%;
+        margin-top:18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .founder-box{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .founder-avatar{
+        margin:auto;
+    }
+
+    .founder-bio{
+        margin:auto;
+    }
+
+    .ai-section h2{
+        font-size:32px;
+    }
+
+    .footer{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+<div class="container nav">
+
+<a href="#" class="logo">
+Creator<span>.Ai</span>
+</a>
+
+<nav class="navlinks">
+<a href="#explore">Explore</a>
+<a href="#articles">Stories</a>
+<a href="#creators">Creators</a>
+<a href="#founder">Founder</a>
+<a href="#about">About</a>
+</nav>
+
+<div class="nav-actions">
+
+<button class="theme-btn" onclick="toggleTheme()" title="Dark mode">
+◐
+</button>
+
+<button class="login-btn" onclick="loginMessage()">
+Login
+</button>
+
+</div>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+<span class="badge-dot"></span>
+THE CREATOR PLATFORM
+</div>
+
+<h1>
+Create.<br>
+Learn.<br>
+<span class="fade">Understand.</span>
+</h1>
+
+<p class="hero-description">
+Creator.Ai is a modern platform for creators, curious minds
+and storytellers. Discover ideas, explore explainers, learn
+new skills and share your perspective.
+</p>
+
+<div class="hero-buttons">
+
+<button class="primary-btn"
+onclick="goTo('explore')">
+Explore Creator.Ai →
+</button>
+
+<button class="secondary-btn"
+onclick="loginMessage()">
+Join the Community
+</button>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="hero-icon">✦</div>
+
+<h3>Ideas worth understanding.</h3>
+
+<p>
+Science, technology, artificial intelligence, business,
+history and education — explained in a simple and engaging way.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EXPLORE -->
+
+<section id="explore">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+<h2 class="section-title">Explore</h2>
+<p class="section-subtitle">
+Discover topics that make you curious.
+</p>
+</div>
+
+<input
+id="search"
+class="search"
+type="search"
+placeholder="Search stories..."
+oninput="searchStories()"
+>
+
+</div>
+
+
+<div class="categories">
+
+<button class="category active"
+onclick="filterStories('all',this)">
+All
+</button>
+
+<button class="category"
+onclick="filterStories('science',this)">
+Science
+</button>
+
+<button class="category"
+onclick="filterStories('technology',this)">
+Technology
+</button>
+
+<button class="category"
+onclick="filterStories('ai',this)">
+AI
+</button>
+
+<button class="category"
+onclick="filterStories('business',this)">
+Business
+</button>
+
+<button class="category"
+onclick="filterStories('history',this)">
+History
+</button>
+
+<button class="category"
+onclick="filterStories('education',this)">
+Education
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STORIES -->
+
+<section id="articles">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+<h2 class="section-title">Latest Stories</h2>
+<p class="section-subtitle">
+Explainers, ideas and stories from the community.
+</p>
+</div>
+
+</div>
+
+
+<div class="grid" id="storyGrid">
+
+
+<article class="card story"
+data-category="science">
+
+<div class="thumbnail">🔬</div>
+
+<div class="card-content">
+
+<div class="tag">Science</div>
+
+<h3>
+The science behind the world around us
+</h3>
+
+<p>
+Explore fascinating questions and discover
+the science behind everyday phenomena.
+</p>
+
+<div class="meta">
+6 min read · Creator.Ai
+</div>
+
+</div>
+
+</article>
+
+
+<article class="card story"
+data-category="technology">
+
+<div class="thumbnail">⚡</div>
+
+<div class="card-content">
+
+<div class="tag">Technology</div>
+
+<h3>
+How technology is changing the way we create
+</h3>
+
+<p>
+From smartphones to powerful creative tools,
+technology is transforming content creation.
+</p>
+
+<div class="meta">
+5 min read · Creator.Ai
+</div>
+
+</div>
+
+</article>
+
+
+<article class="card story"
+data-category="ai">
+
+<div class="thumbnail">🤖</div>
+
+<div class="card-content">
+
+<div class="tag">Artificial Intelligence</div>
+
+<h3>
+AI is becoming a creative partner
+</h3>
+
+<p>
+Understand how modern AI tools can help creators
+research, design and experiment.
+</p>
+
+<div class="meta">
+7 min read · Creator.Ai
+</div>
+
+</div>
+
+</article>
+
+
+<article class="card story"
+data-category="business">
+
+<div class="thumbnail">📈</div>
+
+<div class="card-content">
+
+<div class="tag">Business</div>
+
+<h3>
+How ideas become real businesses
+</h3>
+
+<p>
+Learn the basic principles behind products,
+audiences and digital projects.
+</p>
+
+<div class="meta">
+8 min read · Creator.Ai
+</div>
+
+</div>
+
+</article>
+
+
+<article class="card story"
+data-category="history">
+
+<div class="thumbnail">🏛️</div>
+
+<div class="card-content">
+
+<div class="tag">History</div>
+
+<h3>
+Stories from the past that shaped today
+</h3>
+
+<p>
+Discover historical events and ideas that
+continue to influence the modern world.
+</p>
+
+<div class="meta">
+9 min read · Creator.Ai
+</div>
+
+</div>
+
+</article>
+
+
+<article class="card story"
+data-category="education">
+
+<div class="thumbnail">📚</div>
+
+<div class="card-content">
+
+<div class="tag">Education</div>
+
+<h3>
+Learning beyond the classroom
+</h3>
+
+<p>
+Explore practical ways to learn, research
+and build useful skills.
+</p>
+
+<div class="meta">
+5 min read · Creator.Ai
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+</div>
+
+</section>
+
+
+<!-- CREATORS -->
+
+<section id="creators">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+<h2 class="section-title">Featured Creators</h2>
+
+<p class="section-subtitle">
+People sharing ideas with the community.
+</p>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card creator-card">
+
+<div class="creator-top">
+
+<div class="avatar">🎥</div>
+
+<div>
+<div class="creator-name">
+Creator One
+</div>
+
+<div class="creator-role">
+Science · Creator
+</div>
+</div>
+
+</div>
+
+<button class="follow-btn"
+onclick="followMessage()">
+Follow
+</button>
+
+</div>
+
+
+<div class="card creator-card">
+
+<div class="creator-top">
+
+<div class="avatar">💡</div>
+
+<div>
+<div class="creator-name">
+Creator Two
+</div>
+
+<div class="creator-role">
+Technology · Creator
+</div>
+</div>
+
+</div>
+
+<button class="follow-btn"
+onclick="followMessage()">
+Follow
+</button>
+
+</div>
+
+
+<div class="card creator-card">
+
+<div class="creator-top">
+
+<div class="avatar">🚀</div>
+
+<div>
+<div class="creator-name">
+Creator Three
+</div>
+
+<div class="creator-role">
+AI · Creator
+</div>
+</div>
+
+</div>
+
+<button class="follow-btn"
+onclick="followMessage()">
+Follow
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOUNDER -->
+
+<section id="founder">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+<h2 class="section-title">Meet the Founder</h2>
+
+<p class="section-subtitle">
+The person behind Creator.Ai.
+</p>
+</div>
+
+</div>
+
+
+<div class="founder-box">
+
+<div class="founder-avatar">
+👨‍💻
+</div>
+
+<div>
+
+<div class="founder-label">
+Founder
+</div>
+
+<h2 class="founder-name">
+Shubham Raj
+</h2>
+
+<p class="founder-role">
+Founder of Creator.Ai
+</p>
+
+<p class="founder-bio">
+Creator.Ai was created with the vision of bringing
+creators, knowledge and technology together in one
+modern platform — a place where people can create,
+learn, discover ideas and understand the world around them.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-header">
+
+<div>
+<h2 class="section-title">About Creator.Ai</h2>
+
+<p class="section-subtitle">
+More than a website. A place for ideas.
+</p>
+</div>
+
+</div>
+
+
+<div class="about">
+
+<div class="about-box">
+
+<h3>Our Mission</h3>
+
+<p>
+To make useful knowledge, creative tools and meaningful
+ideas easier to discover and understand — while giving
+creators a place to share their work.
+</p>
+
+</div>
+
+
+<div class="about-box">
+
+<h3>What We Cover</h3>
+
+<p>
+Science, technology, AI, business, history, education,
+culture and the stories shaping the world around us.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AI -->
+
+<section>
+
+<div class="container">
+
+<div class="ai-section">
+
+<h2>AI for creators.</h2>
+
+<p>
+Discover useful AI tools, creative workflows and ideas
+designed to help creators experiment and build.
+</p>
+
+<button class="ai-btn"
+onclick="comingSoon()">
+Explore AI Tools →
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact">
+
+<div class="container">
+
+<h2 class="section-title">
+Have an idea?
+</h2>
+
+<p>
+Creator.Ai is being built for curious people and creators.
+More community features are coming soon.
+</p>
+
+<button class="primary-btn"
+onclick="contactMessage()">
+Get in Touch
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer">
+
+<div>
+
+<div class="footer-logo">
+Creator.Ai
+</div>
+
+<p>
+Create. Learn. Understand.
+</p>
+
+<p>
+Founded by Shubham Raj
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="#about">About</a>
+
+<a href="#founder">Founder</a>
+
+<a href="#explore">Explore</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* DARK MODE */
+
+function toggleTheme(){
+
+document.body.classList.toggle("dark");
+
+}
+
+
+/* SMOOTH SCROLL */
+
+function goTo(id){
+
+document.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* LOGIN */
+
+function loginMessage(){
+
+alert(
+"Creator accounts and login are coming soon.\n\nCreator.Ai"
+);
+
+}
+
+
+/* FOLLOW */
+
+function followMessage(){
+
+alert(
+"Following creators will be available when accounts are launched."
+);
+
+}
+
+
+/* AI */
+
+function comingSoon(){
+
+alert(
+"AI Tools are coming soon to Creator.Ai."
+);
+
+}
+
+
+/* CONTACT */
+
+function contactMessage(){
+
+alert(
+"Contact system will be available soon."
+);
+
+}
+
+
+/* CATEGORY FILTER */
+
+function filterStories(category,button){
+
+document
+.querySelectorAll(".category")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+
+document
+.querySelectorAll(".story")
+.forEach(card=>{
+
+if(category==="all"){
+
+card.style.display="";
+
+}else{
+
+card.style.display =
+card.dataset.category===category
+? ""
+: "none";
+
+}
+
+});
+
+}
+
+
+/* SEARCH */
+
+function searchStories(){
+
+const query =
+document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+document
+.querySelectorAll(".story")
+.forEach(card=>{
+
+const text =
+card.innerText.toLowerCase();
+
+card.style.display =
+text.includes(query)
+? ""
+: "none";
+
+});
+
+}
+
+</script>
+
+</body>
+  </html>
