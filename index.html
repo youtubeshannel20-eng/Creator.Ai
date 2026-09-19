@@ -1426,6 +1426,30 @@ text.includes(query)
 }
 
 </script>
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = "YOUR_SUPABASE_URL";
+const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
+
+// Check current login
+async function checkUser() {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+
+  if (user) {
+    console.log("Logged in:", user.email);
+  } else {
+    console.log("Not logged in");
+  }
+}
+
+checkUser();
+</script>
 </body>
   </html>
